@@ -5,7 +5,6 @@ import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 
 import { AuthResolver } from "./resolvers/AuthResolver";
-import { PictureResolver } from "./resolvers/PictureResolver";
 
 
 (async () => {
@@ -16,7 +15,7 @@ import { PictureResolver } from "./resolvers/PictureResolver";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [AuthResolver, PictureResolver],
+      resolvers: [AuthResolver],
       validate: true,
     }),
     context: ({ req, res }) => ({ req, res }),
